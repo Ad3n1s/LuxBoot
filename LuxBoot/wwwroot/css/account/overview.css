@@ -1,0 +1,64 @@
+﻿
+
+
+#ch {
+    color: cyan;
+}
+
+.attack-list{
+    width: 100%;
+}
+
+    .attack-list h1 {
+        color: white;
+        text-align: center;
+        width: 100%;
+    }
+
+.attack-table {
+    width: 90%;
+    margin: 45px 56px;
+    border-collapse: collapse;
+    background: white;
+    color: #0d47a1;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid white;
+}
+
+    .attack-table thead {
+        background: blue;
+        color: white;
+    }
+
+    .attack-table th {
+        padding: 12px;
+        text-align: left;
+    }
+
+    .attack-table td {
+        padding: 12px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+
+    .attack-table tbody tr:hover {
+        background: rgba(33, 150, 243, 0.1);
+    }
+
+
+    .attack-table button {
+        background: blue;
+        color: white;
+        border: 1px solid white;
+        padding: 6px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+        .attack-table button:hover {
+            background: white;
+            border: 1px solid blue;
+            color: blue;
+        }

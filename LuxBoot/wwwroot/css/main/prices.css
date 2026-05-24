@@ -1,0 +1,111 @@
+﻿
+.info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+    .info h1 {
+        margin-top: 90px;
+        padding: 0;
+        display: inline-block;
+        font-size: 34px;
+        font-family: "Open Sans", Arial;
+        font-weight: 500;
+        color: white;
+        width: 80%;
+    }
+
+
+    .info #change {
+        color: rgb(0, 217, 255);
+    }
+
+
+
+.boxes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: calc(67px);
+    width: 100wh;
+    height: 80vh;
+    padding: 40px;
+}
+
+
+.box {
+    transition: all 0.3s ease;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 100px;
+    height: auto;
+    height: 400px;
+    width: 320px;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin: 10px;
+    background-color: white;
+    box-shadow: 2px 10px 10px rgba(0, 0, 0, 0.812);
+}
+
+    .box h1 {
+        color: blue;
+        font-size: 40px;
+        font-family: "Open Sans";
+        font-weight: 480;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+
+.boxes .box img {
+    width: 15px;
+    height: 15px;
+    margin: 0;
+    margin-right: 10px;
+}
+
+.box li {
+    color: blue;
+    font-size: 17px;
+    font-family: "Open Sans", Arial;
+    font-weight: 380;
+}
+
+.box ul {
+    list-style: none;
+}
+
+
+.box button {
+    color: white;
+    background: blue;
+    border: 1px solid white;
+    border-radius: 25px;
+    font-size: 20px;
+    font-family: "Open Sans", Arial;
+    font-weight: 340;
+    width: 190px;
+    height: 50px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+    .box button:hover {
+        background-color: white;
+        color: blue;
+        border: 1px solid blue;
+        cursor: pointer;
+    }
+
+
+.box:hover {
+    margin-bottom: 30px;
+    box-shadow: 2px 10px 10px rgba(73, 70, 70, 0.812);
+}

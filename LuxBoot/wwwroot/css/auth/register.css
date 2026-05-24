@@ -1,0 +1,122 @@
+﻿
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+
+
+html {
+    background: blue;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    width: 100%;
+    display: flex;
+    transition: opacity ease-in 0.2s;
+    justify-content: center;
+}
+
+.main-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 58%;
+    height: 442px;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 20px;
+    color: black;
+    backdrop-filter: blur(100px);
+    background: rgb(0, 47, 255);
+    padding: 11px 27px;
+}
+
+    .main-page form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: black;
+        margin-top: 9px;
+        width: 60%;
+        margin-bottom: 24px;
+    }
+
+    .main-page h1 {
+        color: rgb(255, 255, 255);
+        font-size: 47px;
+        font-weight: 586;
+        font-family: "Montserrat";
+    }
+
+
+
+    .main-page input {
+        max-width: 100%;
+        width: 98%;
+        height: 40px;
+        border: 0px solid white;
+        border-radius: 4px;
+        margin: 20px 0px;
+        font-size: 25px;
+        padding-left: 10px;
+        font-family: "Montserrat";
+        font-weight: 300;
+        text-align: center;
+        outline: none;
+        background-color: rgb(246, 241, 241);
+        box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.266);
+        transition: all 0.3s ease;
+    }
+
+        .main-page input:hover {
+            width: 100%;
+            height: 41px;
+            cursor: pointer;
+            box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.562);
+        }
+
+        .main-page input:focus::placeholder {
+            color: transparent;
+            cursor: none;
+        }
+
+
+
+        .main-page input::placeholder {
+            text-align: center;
+            color: rgb(0, 0, 0);
+            font-family: "Montserrat";
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+
+    .main-page button {
+        width: 300px;
+        height: 60px;
+        font-size: 27px;
+        font-family: "Montserrat";
+        font-weight: 490;
+        color: black;
+        background-color: white;
+        border: 1px solid white;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+    }
+
+
+        .main-page button:hover {
+            background-color: blue;
+            color: white;
+            cursor: pointer;
+            border: 1px solid blue;
+            box-shadow: 1px 5px 9px rgba(0, 0, 0, 0.266);
+        }

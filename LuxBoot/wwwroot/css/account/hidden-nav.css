@@ -1,0 +1,126 @@
+﻿
+.hidden-nav {
+    display: none;
+    position: fixed;
+    top: 100px;
+    right: 201px;
+    height: 79vh;
+    width: 45%;
+    background: blue;
+}
+
+
+.hidden-nav #top {
+        background-color: white;
+        width: 100%;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        margin: 0;
+        height: 100px;
+    }
+.hidden-nav #top img {
+            width: 100px;
+            height: 100px;
+        }
+
+.hidden-nav img {
+        width: 100px;
+        height: 100px;
+        margin: 0;
+    }
+
+.hidden-nav #top p {
+        margin: 0;
+        padding: 0;
+        font-size: 32px;
+        font-weight: 380;
+        color: blue;
+        font-family: "Open Sans", Arial;
+        margin-right: 100px;
+    }
+
+    .hidden-nav button {
+        display: flex;
+        font-size: 26px;
+        font-family: "Open Sans";
+        font-weight: 350;
+        color: blue;
+        background-color: white;
+        width: 90%;
+        text-align: start;
+        border: 1px solid blue;
+        border-radius: 5px;
+        justify-content: start;
+        align-items: center;
+        margin: 10px 0px;
+        margin-left: 20px;
+        transition: all 0.4s ease;
+    }
+
+
+
+    .hidden-nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        border-radius: 20px;
+        height: 99%;
+        border: 2px solid white;
+        margin: 20px 15px;
+    }
+
+    .hidden-nav li {
+        margin: 10px 0px;
+    }
+
+        .hidden-nav li img {
+            width: 20px;
+            height: 20px;
+            margin: 10px;
+        }
+
+
+
+    .hidden-nav ul div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+        .hidden-nav ul div h1 {
+            color: white;
+            margin-bottom: 40px;
+        }
+
+
+
+    .hidden-nav button:hover {
+        cursor: pointer;
+        background-color: blue;
+        color: white;
+        border: 1px solid white;
+    }
+
+    .hidden-nav #btn {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        padding-left: 23px;
+        margin-top: 9%;
+        height: 8vh;
+    }
+
+    .hidden-nav #leave {
+        width: 25px;
+        height: 25px;
+        margin-right: 10px;
+    }
+
+
+    .hidden-nav #btn:hover {
+        color: black;
+    }
