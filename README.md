@@ -2,6 +2,11 @@
 
 A full-stack ASP.NET project built from scratch to demonstrate backend logic, frontend design, database handling, authentication flows, and responsive UI development. This project was created independently as a learning and portfolio piece to showcase what can be achieved through self-teaching, problem solving, and hands-on development experience.
 
+
+<p align="center">
+  <img src="assets/luxboot_main.PNG" alt="LuxBoot Main Page" width="600">
+</p>
+
 ---
 
 # ASP.NET Booter Panel — Educational Portfolio Project
@@ -40,6 +45,14 @@ This project represents the amount of progress one person can achieve through se
 - Organized project structure
 - Mobile navigation support
 - Real-time style components and tables
+
+
+<p align="center">
+  <img src="assets/luxboot_main_responsive.PNG" alt="LuxBoot Main Page Responsive" width="600">
+</p>
+
+
+
 
 ---
 
@@ -88,6 +101,14 @@ Building this project taught me a lot about:
 Most importantly, it taught me how much can be learned through persistence and building real projects from scratch.
 
 ---
+
+
+
+<p align="center">
+  <img src="assets/luxboot_home.PNG" alt="LuxBoot Home Page" width="600">
+</p>
+
+
 
 ## Future Improvements
 
