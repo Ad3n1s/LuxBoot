@@ -1,0 +1,170 @@
+﻿@model LuxBoot.Models.AccountInfoModel;
+
+
+@if(Model == null)
+{
+    {
+        Layout = null;
+    }
+
+    <h1> Please Loggin.</h1>
+}
+
+else
+{
+    {
+        Layout = "../Shared/_AccountLayout.cshtml";
+    }
+
+
+    <div class="page-body">
+        <div class="title">
+            <h1> Home - <a id="ch">Basic</a></h1>
+        </div>
+
+        <div class="base">
+            @{
+                var s = Model.CurrentPlan;
+                var split = s.Split("_");
+                var plan = split[0];
+                var servercount = split[1];
+                <h3>Current Plan Chosen: <a id="ch">@plan</a></h3>
+                <h3>Subscribtion Active Until: @{
+                        
+                        if(plan == "Basic")
+                        {
+                            var date = DateTime.Parse(Model.MemberSince);
+                            var result = date.AddDays(7);
+                            <a id="ch">@result</a>
+                        }
+                        else if(plan == "Standard")
+                        {
+                            var date = DateTime.Parse(Model.MemberSince);
+                            var result = date.AddDays(30);
+                            <a id="ch">@result</a>
+                        }
+                        else if(plan == "Premium")
+                        {
+                            var date = DateTime.Parse(Model.MemberSince);
+                            var result = date.AddDays(35);
+                            <a id="ch">@result</a>
+                        }
+                    }
+
+                    </h3>
+                <h3>Current Avalable Servers: <a id="ch">@servercount/20</a></h3>
+            }
+        </div>
+
+        <h1 class="line">  </h1>
+
+        <div class="stats">
+            <div class="an">
+                <h1>
+                    Statistics
+                </h1>
+                @{
+                    var membersince = Model.MemberSince.Split(" ")[0];
+                    string lastatt;
+                    if(Model.LastAttack != null)
+                    {
+                        lastatt = Model.LastAttack.Split(" ")[0];
+                    }
+                    else
+                    {
+                        lastatt = "None";
+                    }
+                    
+
+                }
+                <label>Total Attacks: <a id="ch">@Model.TotalAttacks</a></label>
+                <label>Last Attack: <a id="ch">@lastatt</a></label>
+                <label>Member Since: <a id="ch">@membersince</a></label>
+                
+                    @if(plan == "Basic")
+                    {
+                        <label>Concurrents: <a id="ch">1</a></label>
+                    }
+                    else if(plan == "Standard")
+                    {
+                        <label>Concurrents: <a id="ch">2</a></label>
+                    }
+                    else if (plan == "Premium")
+                    {
+                        <label>Concurrents: <a id="ch">10</a></label>
+                    }
+
+
+                @if(plan == "Basic")
+                {
+                    <label>API Key: <a id="ch">None</a></label>
+                }
+                else if(plan == "Standard")
+                {
+                    <label>API Key: <a id="ch">None</a></label>
+                }
+                else if (plan == "Premium")
+                {
+                    <label>API Key: <a id="ch">13902acbbospaqldop234</a></label>
+                }
+
+                
+
+            </div>
+
+            <div class="panel">
+                <h2>Attack Activity</h2>
+                @{
+                   
+                    <span id="getchartdata"
+                          data-value="@string.Join(',', Model.Attacks)"
+                          style="opacity:0; display:none;">
+                    </span>
+                }
+                <canvas id="attackChart"></canvas>
+            </div>
+            <script src="~/css/account/js/script.js" asp-append-version="true"></script>
+            <script src="~/css/account/js/j.js" asp-append-version="true"></script>
+
+            @if (TempData["Message"] != null)
+            {
+                <div id="toast">
+                    <span id="toast-message">@TempData["Message"]</span>
+                </div>
+
+                <script>
+                    const toast = document.getElementById("toast");
+
+                    // hide after 5s
+                    setTimeout(() => {
+                        toast.style.opacity = "0";
+                        toast.style.transform = "translateY(-20px)";
+                    }, 5000);
+                </script>
+
+                <style>
+                    #toast {
+                        position: fixed;
+                        top: 20px;
+                        right: 20px;
+                        min-width: 250px;
+                        padding: 15px 20px;
+                        background: #ffffff;
+                        color: #0a3d62;
+                        border-left: 5px solid #3498db;
+                        border-radius: 8px;
+                        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+                        font-family: Arial, sans-serif;
+                        z-index: 9999;
+                        opacity: 1;
+                        transition: opacity 0.5s ease, transform 0.5s ease;
+                    }
+
+                </style>
+            }
+
+
+            
+        </div>
+    </div>
+}

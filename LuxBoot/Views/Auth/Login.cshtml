@@ -1,0 +1,67 @@
+﻿@model LuxBoot.Models.LoginViewModel;
+
+
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="~/css/auth/login.css" rel="stylesheet" asp-append-version="true">
+
+</head>
+
+<body>
+    <div class="main-page">
+        <h1>Login</h1>
+        <form method="post">
+            <input asp-for=UserName type="text" placeholder="username">
+            <input asp-for=Password type="password" placeholder="password">
+            <button type="submit">Sign in</button>
+        </form>
+    </div>
+
+
+    @if (TempData["Message"] != null)
+    {
+        <div id="toast">
+            <span id="toast-message">@TempData["Message"]</span>
+        </div>
+
+        <script>
+            const toast = document.getElementById("toast");
+
+            // hide after 5s
+            setTimeout(() => {
+                toast.style.opacity = "0";
+                toast.style.transform = "translateY(-20px)";
+            }, 5000);
+        </script>
+
+        <style>
+            #toast {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                min-width: 250px;
+                padding: 15px 20px;
+                background: #ffffff;
+                color: #0a3d62;
+                border-left: 5px solid #3498db;
+                border-radius: 8px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+                font-family: Arial, sans-serif;
+                z-index: 9999;
+                opacity: 1;
+                transition: opacity 0.5s ease, transform 0.5s ease;
+            }
+
+        </style>
+    }
+</body>
+
+</html>

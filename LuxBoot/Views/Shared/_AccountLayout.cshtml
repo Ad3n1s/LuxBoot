@@ -1,0 +1,120 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="~/css/account/home.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/account/layoutmain-css.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/account/Panel.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/account/prices.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/account/overview.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/account/hidden-nav.css" asp-append-version="true" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <div class="hidden-nav">
+
+        <ul>
+            <div>
+                <img src="../pictures/user (4).png">
+                <h1>@User.Identity.Name</h1>
+            </div>
+
+            <li>
+                <button onclick="window.location.href='Home'" "> <img src="../pictures/home.png"> Home </button>
+            </li>
+
+            <li>
+                <button onclick="window.location.href='Panel'" id="attp"> <img src="../pictures/rocket.png"> Attack Panel </button>
+            </li>
+
+            <li>
+                <button onclick="window.location.href='Prices'"><img src="../pictures/price.png"> Pricing </button>
+            </li>
+
+            <li>
+                <button onclick="window.location.href='Overview'" id="overw"> <img src="../pictures/servers.png"> Current Attacks</button>
+            </li>
+
+            <form method="post" asp-controller="Auth" asp-action="Logout">
+                <button type="submit" id="btn">
+                    <img id="leave" src="../pictures/leave.png"> Log Out
+                </button>
+            </form>
+
+
+        </ul>
+    </div>
+
+    <div class="show-button">
+        <button onclick="Change()" style="background-color: blue; border: 0; width: 90px;"><img src="../pictures/menu-bar.png" style="width: 50px; height: 50px; background: transparent;"></button>
+    </div>
+
+    <script>
+        function Change() {
+            const c = document.querySelectorAll(".hidden-nav")
+            c.forEach(element => {
+                element.style.display = "flex";
+                element.style.justifyContent = "center";
+                element.style.alignItems = "center";
+                element.style.flexDirection = "column";
+            });
+
+
+            const aa = document.querySelectorAll("main-nav")
+            aa.forEach(e => {
+                e.style.display = "none";
+            })
+
+            
+        }
+    </script>
+
+    <nav class="main-nav">
+
+        <ul>
+            <div>
+                <img src="../pictures/user (4).png">
+                <h1>@User.Identity.Name</h1>
+            </div>
+
+            <li>
+                <button onclick="window.location.href='Home'" "> <img src="../pictures/home.png"> Home </button>
+            </li>
+
+            <li>
+                <button onclick="window.location.href='Panel'" id="attp"> <img src="../pictures/rocket.png"> Attack Panel </button>
+            </li>
+
+            <li>
+                <button onclick="window.location.href='Prices'"><img src="../pictures/price.png"> Pricing </button>
+            </li>
+
+            <li>
+                <button onclick="window.location.href='Overview'" id="overw"> <img src="../pictures/servers.png"> Current Attacks</button>
+            </li>
+
+            <form method="post" asp-controller="Auth" asp-action="Logout">
+                <button type="submit" id="btn">
+                    <img id="leave" src="../pictures/leave.png"> Log Out
+                </button>
+            </form>
+
+
+        </ul>
+    </nav>
+    
+    <div class="dashboard-container">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+</body>
+</html>

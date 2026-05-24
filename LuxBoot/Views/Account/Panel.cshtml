@@ -1,0 +1,102 @@
+﻿@model LuxBoot.Models.AccountInfoModel
+
+@if(Model == null)
+{
+    {
+        Layout = null;
+    }
+    <h1>Please Loggin.</h1>
+}
+else
+{
+    
+
+    {
+        Layout = "../Shared/_AccountLayout.cshtml";
+    }
+
+
+
+    <div class="page-body">
+        <div class="title">
+            <h1> Attack Panel - <a id="ch">Basic</a></h1>
+        </div>
+
+        <div class="base">
+            <h3>Attacks Left: <a id="ch">@Model.AttacksLeft</a></h3>
+            <h3>-</h3>
+            @if(Model.CurrentPlan == "Basic")
+            {
+                <h3>Concurrents Allowed: <a id="ch">1</a></h3>
+            }
+            else if(Model.CurrentPlan == "Standard")
+            {
+                <h3>Concurrents Allowed: <a id="ch">2</a></h3>
+            }
+            else if (Model.CurrentPlan == "Standard")
+            {
+                <h3>Concurrents Allowed: <a id="ch">3</a></h3>
+            }
+        </div>
+
+
+        <div class="actions">
+            <form method="post" asp-action="Panel">
+                <input name="ipaddress" type="text" placeholder="IP Address">
+                <input name="port" type="number" placeholder="Port">
+                <input name="time" type="number" placeholder="Time">
+                <label for="a-type">Attack Type</label>
+                <select name="type" id="a-type" name="a-type">
+                    <option value="">- Select -</option>
+                    <option value="udp">UDP-ACK</option>
+                    <option value="tcp">TCP-ACK</option>
+                    <option value="syn">SYN-ACK</option>
+                    <option value="hget">HTTP-GET</option>
+                    <option value="hsget">HTTPS-GET</option>
+                    <option value="uflood">UDP-FLOOD</option>
+                    <option value="cfbypass">CLOUDFLARE-BYPASS</option>
+                </select>
+                <button type="submit"><img src="../pictures/send.png">Start</button>
+            </form>
+        </div>
+    </div>
+
+
+    @if (TempData["Message"] != null)
+    {
+        <div id="toast">
+            <span id="toast-message">@TempData["Message"]</span>
+        </div>
+
+        <script>
+            const toast = document.getElementById("toast");
+
+            // hide after 5s
+            setTimeout(() => {
+                toast.style.opacity = "0";
+                toast.style.transform = "translateY(-20px)";
+            }, 5000);
+        </script>
+
+        <style>
+            #toast {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                min-width: 250px;
+                padding: 15px 20px;
+                background: #ffffff;
+                color: #0a3d62;
+                border-left: 5px solid #3498db;
+                border-radius: 8px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+                font-family: Arial, sans-serif;
+                z-index: 9999;
+                opacity: 1;
+                transition: opacity 0.5s ease, transform 0.5s ease;
+            }
+
+        </style>
+    }
+
+}

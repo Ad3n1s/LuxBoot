@@ -1,0 +1,119 @@
+﻿@model LuxBoot.Models.AccountInfoModel;
+
+
+@{
+    Layout = "../Shared/_AccountLayout.cshtml";
+}
+
+<div class="page-body">
+    <div class="title">
+        <h1> Overview - <a id="ch">Basic</a></h1>
+    </div>
+
+    <div class="attack-list">
+        <h1>Current Attacks</h1>
+        <table class="attack-table">
+            <thead>
+                <tr>
+                    <th>Attack-Type</th>
+                    <th>IP-Address</th>
+                    <th>Port</th>
+                    <th>Attack-Time</th>
+                    <th>Time Left</th>
+                    <th>Activity</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                    @{
+                        if (Model.CurrentAttacksList != null)
+                        {
+                            foreach (var i in Model.CurrentAttacksList)
+                            {
+                                    <tr>
+                                        <td name="type">@i.AttackType</td>
+                                        <td name="address">@i.IpAddress</td>
+                                        <td name="port">@i.Port</td>
+                                        <td name="time">@i.Time</td>
+                                        <td class="timer" data-end="@i.TimeLeft"></td>
+                                        <td>
+                                    <form method="post" asp-action="Overview">
+
+                                        <input type="hidden" name="type" value="@i.AttackType" />
+                                        <input type="hidden" name="address" value="@i.IpAddress" />
+                                        <input type="hidden" name="port" value="@i.Port" />
+
+                                        <button type="submit">Stop Attack</button>
+                                    </form>
+                                    </tr>
+
+                            <script>
+                                
+                                function updateTimers() {
+                                    document.querySelectorAll(".timer").forEach(el => {
+
+                                        const end = new Date(el.dataset.end); 
+                                        const now = new Date();
+
+                                        let diff = Math.floor((end - now) / 1000);
+
+                                        if (diff <= 0) {
+                                            el.innerText = "0s";
+                                            return;
+                                        }
+
+                                        const m = Math.floor(diff / 60);
+                                        const s = diff % 60;
+
+                                        el.innerText = `${m}:${s.toString().padStart(2, '0')}`;
+                                    });
+                                }
+
+                                setInterval(updateTimers, 1000);
+                                updateTimers();
+                            </script>
+                            }
+                        }
+                       
+                    }
+                
+           </tbody>
+        </table>
+        @if (TempData["Message"] != null)
+        {
+            <div id="toast">
+                <span id="toast-message">@TempData["Message"]</span>
+            </div>
+
+            <script>
+                const toast = document.getElementById("toast");
+
+                // hide after 5s
+                setTimeout(() => {
+                    toast.style.opacity = "0";
+                    toast.style.transform = "translateY(-20px)";
+                }, 5000);
+            </script>
+
+            <style>
+                #toast {
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    min-width: 250px;
+                    padding: 15px 20px;
+                    background: #ffffff;
+                    color: #0a3d62;
+                    border-left: 5px solid #3498db;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+                    font-family: Arial, sans-serif;
+                    z-index: 9999;
+                    opacity: 1;
+                    transition: opacity 0.5s ease, transform 0.5s ease;
+                }
+
+            </style>
+        }
+    </div>
+</div>

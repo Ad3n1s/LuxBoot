@@ -1,0 +1,69 @@
+﻿
+@if (!User.Identity.IsAuthenticated)
+{
+    Layout = null;
+    <h1>Please Loggin.</h1>
+}
+
+@{ Layout = "../Shared/_AccountLayout.cshtml";}
+
+<div class="page-body">
+    <div class="title">
+        <h1> Prices - <a id="ch">Basic</a></h1>
+    </div>
+
+    <div class="boxes">
+        <div class="box">
+            <h1> Basic - 20€  </h1>
+            <div class="box-items">
+                <ul>
+                    <li>Concurrents - <a id="ch"> 1</a></li>
+                    <li>Attack Time - <a id="ch">60s</a></li>
+                    <li>API Access - <a id="ch">None</a></li>
+                    <li>Exlusive Deals - <a id="ch">None</a></li>
+                    <li>Unlimited Attacks - <a id="ch">No</a></li>
+                </ul>
+            </div>
+            <button onclick="a()"> Purchuse </button>
+        </div>
+
+        <div class="box">
+            <h1> Standard - 40€</h1>
+            <div class="box-items">
+                <ul>
+                    <li>Concurrents - <a id="ch"> 2</a></li>
+                    <li>Attack Time - <a id="ch">180s</a></li>
+                    <li>API Access - <a id="ch">None</a></li>
+                    <li>Exlusive Deals - <a id="ch">None</a></li>
+                    <li>Unlimited Attacks - <a id="ch">Yes</a></li>
+                </ul>
+            </div>
+            <button onclick="a()"> Purchuse </button>
+        </div>
+
+        <div class="box">
+            <h1> Premium - 120€</h1>
+            <div class="box-items">
+                <ul>
+                    <li>Concurrents - <a id="ch"> 10</a></li>
+                    <li>Attack Time - <a id="ch">360s</a></li>
+                    <li>API Access - <a id="ch">Yes</a></li>
+                    <li>Exlusive Deals - <a id="ch">Yes</a></li>
+                    <li>Unlimited Attacks - <a id="ch">Yes</a></li>
+                </ul>
+            </div>
+            <button onclick="a()"> Purchuse </button>
+        </div>
+    </div>
+
+    <script>
+        function a() {
+            const c = "https://discord.gg/HgwYEgrU";
+            window.location.href = c;
+        }
+    </script>
+
+</div>
+
+
+    

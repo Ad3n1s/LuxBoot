@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LuxBoot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="~/css/main/main.css" rel="stylesheet" asp-append-version="true"/>
+    <link href="~/css/main/prices.css" rel="stylesheet" asp-append-version="true" />
+    
+</head>
+<body>
+    <div class="page-content">
+        <header>
+            <nav class="NavBar-Main">
+                <div class="after">
+                    <button onclick="Change()" style="background-color: blue; border: 0; width: 90px;"><img src="../pictures/menu-bar.png" style="width: 50px; height: 50px; background: transparent;"></button>
+                </div>
+                <script>
+                    function Change() {
+                        const c = document.querySelectorAll(".after-click")
+                        c.forEach(element => {
+                            element.style.opacity = "1";
+                            element.style.transform = "translateY(100%)";
+                            element.style.display = "block";
+                        });
+
+                        document.querySelector(".page-content").classList.add("blur");
+                    }
+                </script>
+
+
+                <img id="logo" src="~/pictures/remove.png" alt=""> 
+                <ul id="nav1">
+                    @if(ViewData["Title"] == "LuxBoot")
+                    {
+                        <li><a asp-controller="home" asp-action="Index" class="active">Home</a></li>
+                    }
+                    else
+                    {
+                        <li><a asp-controller="home" asp-action="Index">Home</a></li>
+                    }
+                    @if(ViewData["Title"] == "Prices")
+                    {
+                        <li><a asp-controller="home" asp-action="Prices" class="active">Pricing</a></li>
+                    }
+                    else
+                    {
+                        <li><a asp-controller="home" asp-action="Prices">Pricing</a></li>
+                    }
+                    <li><a href="../account/home">Panel</a></li>
+                    <li><a href="../account/overview">Current Attacks</a></li>
+                </ul>
+                <ul id="nav2">
+                    <li id="sig">
+                        <a asp-controller="auth" asp-action="Register"> Sign Up</a>
+                    </li>
+
+                    <li id="log">
+                        <a asp-controller="auth" asp-action="Login">Log In</a>
+                    </li>
+
+                </ul>
+            </nav>
+        </header>
+
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+</body>
+
+<div class="after-click">
+    <button onclick=Remove()><img src="../pictures/cross.png" style="width: 50px; height: 50px; background: transparent;"></button>
+    <a asp-controller="Home" asp-action="Index">Home</a>
+    <a asp-controller="Home" asp-action="Prices">Prices</a>
+    <a asp-controller="Account" asp-action="Home">Panel</a>
+    <a asp-controller="Account" asp-action="Overview">Current Attacks</a>
+</div>
+<script>
+    function Remove() {
+        const c = document.querySelectorAll(".after-click")
+        c.forEach(element => {
+            element.style.opacity = "0";
+            element.style.transform = "translateY(-100%)";
+            element.style.display = "none";
+        });
+        document.querySelector(".page-content").classList.remove("blur");
+    }
+</script>
+
+
+
+
+</html>
